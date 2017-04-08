@@ -1,0 +1,449 @@
+/*--------------------------------------
+   Header
+--------------------------------------*/
+
+// Notes...
+
+.header {
+
+	.wrap {
+
+		background: $white;
+
+	}
+
+}
+
+		.banner {
+
+			position: relative;
+
+		}
+
+			.site-title {
+
+				display: none; // Temporarily hidden to test new location in pre-header.
+
+				position: absolute;
+				left: 95px;
+				top: 50%;
+				@include font-size(22);
+				@include open-sans-bold;
+				transform: translate(0, -50%);
+				z-index: 10;
+
+				// .site-title needs to be positioned
+				// differently due to layout.
+
+				.home & {
+
+					left: 20px;
+					top: 20px;
+					transform: none;
+
+				}
+
+				a {
+
+					color: $red;
+					text-decoration: none;
+
+					&:hover {}
+
+				}
+
+			}
+
+			.banner-photo {
+
+				display: none; // Temporarily hidden due to new location
+
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 5;
+
+				img {}
+
+			}
+
+			.flexslider {
+
+				margin: 0;
+				padding: 0;
+
+			}
+
+				.slides {
+
+					margin: 0;
+					padding: 0;
+					list-style: none;
+
+					&:after {
+
+						content: "\0020";
+						clear: both;
+						display: block;
+						height: 0;
+						line-height: 0;
+						visibility: hidden;
+
+					}
+
+					li {
+
+						position: relative;
+						display: none;
+						width: 100%;
+						height: 300px;
+						overflow: hidden;
+						-webkit-backface-visibility: hidden;
+
+						&:first-child {
+
+							.no-js & {
+
+								display: block;
+
+							}
+
+						}
+
+					}
+
+						img {
+
+							position: absolute;
+							left: 50%;
+							top: 0;
+							max-width: none;
+							height: 100%;
+							transform: translate(-50%, 0);
+							z-index: 1;
+
+						}
+
+						.overlay {
+
+							position: absolute;
+							right: 20px;
+							bottom: 20px;
+							z-index: 5;
+
+						}
+
+							.description {}
+
+				}
+
+			.banner-image {
+
+				position: relative;
+				width: 100%;
+				height: 100px;
+				overflow: hidden;
+
+				img {
+
+					position: absolute;
+					left: 50%;
+					top: 0;
+					max-width: none;
+					height: 100%;
+					transform: translate(-50%, 0);
+					z-index: 1;
+
+				}
+
+			}
+
+		.primary-navigation {
+
+			position: relative;
+			padding: 50px 0 0 0;
+			background: darken($gray, 25%);
+
+			@media screen and (min-width: 840px) {
+
+				padding: 0 50px 0 0;
+
+			}
+
+			.toggle {
+
+				position: absolute;
+				right: 0;
+				top: 0;
+				// @include hide-text;
+				z-index: 1;
+
+				@media screen and (min-width: 840px) {
+
+					display: none;
+
+				}
+
+				span {
+
+					display: block;
+					// width: 50px;
+					height: 50px;
+					padding: 14px 17px 0 17px;
+					@include open-sans-bold;
+					text-align: center;
+					text-transform: uppercase;
+					color: $white;
+					// background: $red url(../img/nav-toggle.svg) 0 0 no-repeat;
+					background-color: $red;
+					cursor: pointer;
+
+				}
+
+			}
+
+			ul {
+
+				display: none;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: flex-start;
+				align-content: stretch;
+				margin: 0;
+				padding: 0;
+				background-color: darken($gray, 20%);
+				list-style: none;
+
+				@media screen and (min-width: 840px) {
+
+					display: flex;
+					flex-wrap: nowrap;
+					background: none;
+
+				}
+
+				// While open on smaller screen views
+
+				&.open {
+
+					display: flex;
+
+				}
+
+			}
+
+				li {
+
+					width: 50%;
+					@include open-sans-bold;
+					text-align: center;
+					text-transform: uppercase;
+					border-top: 1px solid darken($gray, 25%);
+
+					@media screen and (min-width: 840px) {
+
+						width: auto;
+						border-top: none;
+						border-right: 1px solid $gray;
+
+					}
+
+					&:nth-child(odd) {
+
+						border-right: 1px solid darken($gray, 25%);
+
+						@media screen and (min-width: 840px) {
+
+							border-right-color: $gray;
+
+						}
+
+					}
+
+					&:last-of-type {
+
+						@media screen and (min-width: 840px) {
+
+							border: none;
+
+						}
+
+					}
+
+				}
+
+					a {
+
+						display: block;
+						height: 50px;
+						padding: 14px 10px 0 10px;
+						color: $white;
+						text-decoration: none;
+
+						@media screen and (min-width: 840px) {
+
+							height: 50px;
+							padding: 14px 20px 0 20px;
+
+						}
+
+						&:hover {
+
+							background-color: rgba($white, 0.10);
+
+						}
+
+					}
+
+				// While active
+
+				.current-menu-item,
+				.current-menu-parent,
+
+				// While on individual post page
+
+				.single-post & .current_page_parent {
+
+					a {
+
+						background-color: rgba($white, 0.20);
+
+						&:hover {}
+
+					}
+
+				}
+
+		}
+
+			.global-search {
+
+				// display: none;
+
+				label {
+
+					display: none;
+
+					@media screen and (min-width: 840px) {
+
+						display: block;
+						position: absolute;
+						right: 0;
+						top: 0;
+						display: block;
+						width: 50px;
+						height: 50px;
+						background: $red url(../img/search-toggle.svg) 0 0 no-repeat;
+						@include hide-text;
+						z-index: 1;
+
+					}
+
+				}
+
+				div {
+
+					position: absolute;
+					left: 20px;
+					top: 5px;
+					width: 60%;
+					height: 40px;
+					padding: 0 40px 0 0;
+					z-index: 5;
+
+					@media screen and (min-width: 840px) {
+
+						display: none;
+						left: auto;
+						top: 60px;
+						right: 25px;
+						height: 50px;
+						width: 400px;
+						padding: 5px 45px 5px 5px;
+						background: darken($gray, 25%);
+						box-shadow: 5px 5px 0 rgba($black, 0.15);
+
+					}
+
+					&:after {
+
+						@media screen and (min-width: 840px) {
+
+							content: "";
+							position: absolute;
+							top: -20px;
+							right: 0;
+							width: 20px;
+							height: 20px;
+							background: url(../img/riser.svg) 0 0 no-repeat;
+							z-index: 1;
+
+						}
+
+					}
+
+					&.open {
+
+						@media screen and (min-width: 840px) {
+
+							display: block;
+
+						}
+
+					}
+
+				}
+
+					input {
+
+						height: 100%;
+						background-color: rgba($white, 0.25);
+						border: none;
+						outline: none;
+
+						@media screen and (min-width: 840px) {
+
+							height: 40px;
+							background-color: $white;
+							border-right: none;
+
+						}
+
+						&:focus {
+
+							background-color: $white;
+
+						}
+
+					}
+
+					button {
+
+						position: absolute;
+						right: 0;
+						top: 0;
+						width: 40px;
+						height: 40px;
+						padding: 0;
+						background: darken($gray, 15%) url(../img/search.svg) 0 0 no-repeat;
+						@include hide-text;
+						z-index: 1;
+
+						@media screen and (min-width: 840px) {
+
+							right: 5px;
+							top: 5px;
+
+						}
+
+						&:focus,
+						&:hover {
+
+							background-color: $red;
+
+						}
+
+					}
+
+			}

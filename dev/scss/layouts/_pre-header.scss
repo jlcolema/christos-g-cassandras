@@ -1,0 +1,98 @@
+/*--------------------------------------
+   Pre-Header
+--------------------------------------*/
+
+// Notes...
+
+.pre-header {
+
+	.wrap {
+
+		padding: 20px;
+		background: $red;
+
+		@media screen and (min-width: 360px) {
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: center;
+			align-content: flex-start;
+
+		}
+
+	}
+
+		.pre-header-site-title {
+
+			a {
+
+				@include font-size(18);
+				@include open-sans-bold;
+				color: $white;
+				text-decoration: none;
+
+				@media screen and (min-width: 360px) {
+
+					@include font-size(22);
+
+				}
+
+				&:hover {}
+
+			}
+
+		}
+
+		.logo {
+
+			position: relative;
+			left: -4px;
+
+			svg {
+
+				max-width: 140px;
+
+			}
+
+		}
+
+		.affiliations {
+
+			margin: 10px 0 0 0;
+			padding: 15px 0 0 0;
+			border-top: 3px solid rgba($white, 0.35);
+			list-style: none;
+
+			@media screen and (min-width: 360px) {
+
+				margin: 0;
+				padding: 0 0 0 20px;
+				border-top: none;
+				border-left: 3px solid rgba($white, 0.35);
+
+			}
+
+			li {
+
+				@include font-size(12);
+
+			}
+
+				a {
+
+					color: $white;
+					text-decoration: none;
+
+					&:hover {
+
+						text-decoration: underline;
+
+					}
+
+				}
+
+		}
+
+}

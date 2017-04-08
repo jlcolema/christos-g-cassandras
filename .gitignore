@@ -1,0 +1,7 @@
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+node_modules/
+dist/html/wp-content/themes/cgc/assets/
+dist/html/wp-content/uploads/
+dev/backup/

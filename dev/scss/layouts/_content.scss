@@ -1,0 +1,654 @@
+/*--------------------------------------
+   Content
+--------------------------------------*/
+
+// Notes...
+
+.content {
+
+	.wrap {
+
+		padding: 30px 20px;
+		background: $white;
+
+		@media screen and (min-width: 800px) {
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: flex-start;
+			align-content: flex-start;
+
+		}
+
+	}
+
+}
+
+		/* Section
+		--------------------------------------*/
+
+		// Displays the title of the current
+		// page, and, if available,
+		// secondary navigation.
+
+		.section {
+
+			width: 100%;
+			margin: 0 0 30px 0;
+
+		}
+
+			// Title
+
+			.section-title {
+
+				position: relative;
+				margin: 0;
+				@include font-size(26);
+				text-transform: uppercase;
+				color: $red;
+				border-bottom: 4px solid lighten($gray, 50%);
+
+				a {
+
+					position: absolute;
+					right: 0;
+					top: 11px;
+					@include font-size(12);
+					@include open-sans-regular;
+					color: $gray;
+					z-index: 1;
+
+					&:hover {}
+
+				}
+
+					.arrow {}
+
+			}
+
+			// Secondary Navigation
+
+			.secondary-navigation {
+
+				padding: 15px 0;
+				border-bottom: 1px solid lighten($gray, 50%);
+
+				// Temporarily hide this on single-post
+
+				.single-post & {
+
+					display: none;
+
+				}
+
+				.nav-inner-wrap {
+
+					height: 22px;
+					overflow: hidden;
+
+				}
+
+					ul {
+
+						// display: flex;
+						// flex-direction: row;
+						// flex-wrap: nowrap;
+						// justify-content: flex-start;
+						// align-items: flex-start;
+						// align-content: flex-start;
+						height: 42px;
+						margin: 0;
+						padding: 0 0 20px 0;
+						list-style: none;
+						overflow-x: auto;
+						white-space: nowrap;
+						-webkit-overflow-scrolling: touch;
+
+					}
+
+						li {
+
+							display: inline-block;
+							// margin: 10px 0 0 0;
+
+							&:after {
+
+								content: "\002f";
+								margin: 0 10px;
+
+							}
+
+							&:last-of-type {
+
+								&:after {
+
+									content: none;
+									margin: 0;
+
+								}
+
+							}
+
+						}
+
+							a {
+
+								color: $gray;
+								text-decoration: none;
+
+								&:hover {
+
+									color: $blue;
+
+								}
+
+							}
+
+						// While active
+
+						.current-menu-item {
+
+							@include open-sans-bold;
+
+							&:after {
+
+								@include open-sans-regular;
+
+							}
+
+							a {
+
+								color: $blue;
+								text-decoration: none;
+
+								&:hover {}
+
+							}
+
+						}
+
+			}
+
+		/* Content
+		--------------------------------------*/
+
+		// The main content for the page.
+
+		.primary {
+
+			width: 100%;
+			// background: purple;
+
+			@media screen and (min-width: 800px) {
+
+				width: calc(66.666666667% - 10px);
+
+			}
+
+			// There is no secondary content on the home page
+			// so the width should be set to 100%.
+
+			.home & {
+
+				width: 100%;
+				background: none;
+
+				@media screen and (min-width: 600px) {
+
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					align-items: stretch;
+					align-content: flex-start;
+
+				}
+
+			}
+
+		}
+
+			/* Home
+			--------------------------------------*/
+
+			// The home page has a three-column
+			// layout instead of the default
+			// two-column for the rest of the site.
+
+			.module {}
+
+				.module-header {
+
+					margin: 0 0 15px 0;
+					border-bottom: 1px solid lighten($gray, 50%);
+
+				}
+
+					.module-title {
+
+						display: inline-block;
+						margin: 0;
+						@include font-size(14);
+						text-transform: uppercase;
+
+					}
+
+				.module-content {}
+
+					.module-more {
+
+						margin: 10px 0 0 0;
+						padding: 16px 0 0 0;
+						border-top: 1px solid lighten($gray, 50%);
+
+						a {
+
+							color: $white;
+							display: inline-block;
+							height: 30px;
+							padding: 4px 12px 0 12px;
+							background-color: lighten($gray, 25%);
+							text-decoration: none;
+
+							&:hover {
+
+								background-color: $red;
+
+							}
+
+						}
+
+					}
+
+			// Welcome Message
+
+			.module-welcome-message {
+
+				width: 100%;
+				margin: 0 0 30px 0;
+
+				@media screen and (min-width: 900px) {
+
+					width: calc(33.333333333% - 20px);
+					margin: 0;
+
+				}
+
+				.module-header {}
+
+					.module-title {}
+
+				.module-content {
+
+					@include group;
+
+				}
+
+					.photo {
+
+						float: left;
+						margin: 0 20px 0 0;
+						border: 1px solid lighten($gray, 50%);
+
+					}
+
+						img {}
+
+					p {
+
+						margin: 0;
+
+					}
+
+			}
+
+			// Recent News
+
+			.module-recent-news {
+
+				margin: 0 0 30px 0;
+
+				@media screen and (min-width: 600px) {
+
+					width: calc(50% - 16px);
+					margin: 0;
+
+				}
+
+				@media screen and (min-width: 900px) {
+
+					width: calc(33.333333333% - 20px);
+
+				}
+
+				.module-header {}
+
+					.module-title {}
+
+				.module-content {}
+
+					.summary {
+
+						position: relative;
+						min-height: 72px;
+						padding: 10px 0 10px 70px;
+						border-top: 1px solid lighten($gray, 50%);
+
+						&:first-of-type {
+
+							padding-top: 0;
+							border: none;
+
+							// TODO: Simplify this.
+
+							.thumbnail {
+
+								top: 0;
+
+							}
+
+						}
+
+						&:last-of-type {
+
+							padding-bottom: 0;
+
+						}
+
+					}
+
+						.thumbnail {
+
+							position: absolute;
+							left: 0;
+							top: 10px;
+							border: 1px solid lighten($gray, 50%);
+							z-index: 1;
+
+							a {
+
+								&:hover {}
+
+							}
+
+								img {}
+
+						}
+
+						.title {
+
+							margin: 0;
+							@include font-size(14);
+
+							a {
+
+								text-decoration: none;
+
+								&:hover {
+
+									text-decoration: underline;
+
+								}
+
+							}
+
+						}
+
+						footer {}
+
+							time {
+
+								@include font-size(12);
+
+							}
+
+			}
+
+			// Selected Publications
+
+			.module-selected-publications {
+
+				@media screen and (min-width: 600px) {
+
+					width: calc(50% - 16px);
+
+				}
+
+				@media screen and (min-width: 900px) {
+
+					width: calc(33.333333333% - 20px);
+
+				}
+
+				.module-header {}
+
+					.module-title {}
+
+				.module-content {}
+
+					.summary {
+
+						position: relative;
+						margin: 10px 0 0 0;
+						// background: pink;
+
+						&:first-of-type {
+
+							margin: 0;
+
+						}
+
+					}
+
+						.title {
+
+							margin: 0;
+							@include font-size(14);
+
+							a {
+
+								text-decoration: none;
+
+								&:hover {
+
+									text-decoration: underline;
+
+								}
+
+							}
+
+						}
+
+						.need-title {}
+
+							p {
+
+								margin: 0;
+
+							}
+
+						footer {}
+
+							time {
+
+								@include font-size(12);
+
+							}
+
+			}
+
+			/* News
+			--------------------------------------*/
+
+			// Notes...
+
+			/* News (Landing Page) */
+
+			.video {
+
+				position: relative;
+				height: 0;
+				margin: 0 0 35px 0;
+				padding: 35px 0 56.25% 0;
+				overflow: hidden;
+
+				iframe {
+
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 1;
+
+				}
+
+			}
+
+			.news-posts {
+
+				.summary {
+
+					position: relative;
+					min-height: 72px;
+					padding: 10px 0 10px 70px;
+					border-top: 1px solid lighten($gray, 50%);
+
+					&:first-of-type {
+
+						padding-top: 0;
+						border: none;
+
+						// TODO: Simplify this.
+
+						.thumbnail {
+
+							top: 0;
+
+						}
+
+					}
+
+					&:last-of-type {
+
+						padding-bottom: 0;
+
+					}
+
+				}
+
+					.thumbnail {
+
+						position: absolute;
+						left: 0;
+						top: 10px;
+						border: 1px solid lighten($gray, 50%);
+						z-index: 1;
+
+						a {
+
+							&:hover {}
+
+						}
+
+							img {}
+
+					}
+
+					.title {
+
+						margin: 0;
+						@include font-size(18);
+
+						a {
+
+							text-decoration: none;
+
+							&:hover {
+
+								text-decoration: underline;
+
+							}
+
+						}
+
+					}
+
+					.excerpt {
+
+						p {}
+
+					}
+
+					footer {}
+
+						time {
+
+							@include font-size(12);
+
+						}
+
+			}
+
+			/* Single Post */
+
+			.post-entry {}
+
+				.post-hero {
+
+					margin: 0 0 25px 0;
+
+					img {}
+
+				}
+
+				.post-title {
+
+					margin-top: 0;
+					@include font-size(22);
+
+				}
+
+				.post-content {}
+
+				.post-share {}
+
+		/* Secondary
+		--------------------------------------*/
+
+		// Content that is complementary to the
+		// main content, sometimes display as
+		// a sidebar.
+
+		.secondary {
+
+			width: 100%;
+			margin: 20px 0 0 0;
+			padding: 20px;
+			background: lighten($gray, 50%);
+
+			@media screen and (min-width: 800px) {
+
+				width: calc(33.333333333% - 20px);
+				margin: 0;
+
+			}
+
+				h3 {
+
+					margin-top: 0;
+					@include font-size(14);
+					text-transform: uppercase;
+
+				}
+
+				p {
+
+					margin: 0;
+
+				}
+
+		}
