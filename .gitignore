@@ -1,8 +1,20 @@
 .DS_Store
-*.sublime-project
-*.sublime-workspace
-node_modules/
-dist/html/wp-content/themes/cgc/assets/
-dist/html/wp-content/uploads/
-dev/backup/
-wp-config*
+*.nova
+*.code-workspace
+organize/*
+
+# Ignore everything in the root except the "wp-content" directory.
+
+dist/html/*
+!dist/html/wp-content/
+
+# Ignore everything in the "wp-content" directory, except:
+# "mu-plugins", "plugins", "themes" directory.
+
+dist/html/wp-content/*
+!dist/html/wp-content/themes/
+
+# Ignore specific themes.
+
+dist/html/wp-content/themes/*
+!dist/html/wp-content/themes/cgc/
